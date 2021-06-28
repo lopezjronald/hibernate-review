@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define your beans here  -->
+
+    <bean id="myFortuneService"
+          class="com.steadfast.sports.HappyFortuneService"></bean>
+
+    <bean id="baseballCoach"
+          class="com.steadfast.sports.BaseballCoach">
+        <!-- set up constructor injection-->
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+    <bean id="trackCoach"
+          class="com.steadfast.sports.TrackCoach"
+          scope="prototype">
+        <!-- set up constructor injection-->
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+    <bean id="hockeyCoach"
+          class="com.steadfast.sports.HockeyCoach">
+        <!-- set up constructor injection-->
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+</beans>
+
+
+
+
+

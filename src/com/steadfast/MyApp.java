@@ -1,6 +1,8 @@
 package com.steadfast;
 
 import com.steadfast.sports.Coach;
+import com.steadfast.sports.CricketCoach;
+import com.steadfast.sports.HappyFortuneService;
 import com.steadfast.sports.HockeyCoach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -36,6 +38,12 @@ public class MyApp {
         System.out.println(hockeyCoach.getMyDailyWorkout());
         System.out.println(hockeyCoach.getMyDailyNutritionAdvise());
         System.out.println(hockeyCoach.getDailyFortune());
+
+        CricketCoach cricketCoach = context.getBean("cricketCoach", CricketCoach.class);
+        cricketCoach.getDailyFortune();
+        cricketCoach.getMyDailyNutritionAdvise();
+        System.out.println(cricketCoach.getEmail());
+        System.out.println(cricketCoach.getTeam());
 
         // close the context
         context.close();

@@ -2,7 +2,18 @@ package com.steadfast.sports;
 
 public class CricketCoach implements Coach{
 
+    private String email;
+    private String team;
     private FortuneService fortuneService;
+
+    public CricketCoach() {
+        System.out.println("CricketCoach no-args constructor created.");
+    }
+
+
+    public CricketCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
 
     @Override
     public String getMyDailyWorkout() {
@@ -17,5 +28,26 @@ public class CricketCoach implements Coach{
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    public void setFortuneService(FortuneService fortuneService) {
+        System.out.println("Inside the setFortuneService setter method");
+        this.fortuneService = fortuneService;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTeam() {
+        return team;
     }
 }
